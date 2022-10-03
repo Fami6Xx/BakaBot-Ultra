@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" href="./login/login/style.css">
+<body>
+	<!-- These two inputs are there only for autocomplete issues from google.... -->
+	<input style="display:none">
+	<input type="password" style="display:none">
+
+	<div class="box">
+		<form autocomplete="nope" action="/login" name="loginForm" id="loginForm" method="post">
+			<h2>Sign in</h2>
+			<div class="inputBox">
+				<input type="text" required="required" autocomplete="new-password">
+				<span>Username</span>
+				<i></i>
+			</div>
+			<div class="inputBox">
+				<input type="password" required="required" autocomplete="new-password">
+				<span>Password</span>
+				<i></i>
+			</div>
+			<div class="links">
+				<a href="#">Forgot Password ?</a>
+				<a href="#">Signup</a>
+			</div>
+			<input type="submit" value="Login">
+		</form>
+	</div>
+</body>
+</html>

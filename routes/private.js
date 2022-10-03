@@ -9,15 +9,13 @@ router.all("*", (req, res, next) => {
     next();
   }else{
     // This will redirect to login page
-    req.session.loggedin = true;
-    req.session.timeout = Date.now() + 1800000; // Half Hour = 1 800 000 ms
-    res.sendStatus(400);
+    res.sendFile("public/login/login/index.html", {root: root});
   }
 });
 
 /* GET private listings. */
 router.get("/", (req, res, next) => {
-  res.sendFile("private/index.html", {root: root})
+  res.sendFile("private/", {root: root})
 });
 
 module.exports = router;
