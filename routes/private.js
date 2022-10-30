@@ -18,4 +18,16 @@ router.get("/", (req, res, next) => {
   res.sendFile("private/", {root: root})
 });
 
+router.get("/logout", (req, res, next) => {
+  if(req.session.loggedin){
+    req.session.loggedin = false;
+    req.session.timeout = 0;
+    req.session.username = null;
+    res.redirect("/private/");
+  }
+  else
+  {
+    next();
+  }
+});
 module.exports = router;

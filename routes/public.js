@@ -5,12 +5,12 @@ const root = __dirname.replace('\\routes', "");
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.sendFile('public/mainPage/index.html', { root: root});
+  res.render("login");
 })
 
 /* GET login page */
-router.get("/login", function (req, res, next) {
-  res.sendFile("public/login/login/index.html", {root: root});
+router.get("/login", function (req, res) {
+  res.render("login");
 });
 
 /* POST login form */
@@ -22,7 +22,7 @@ router.post("/login", function (req, res, next){
 
     res.redirect("/private/")
   }else{
-    res.sendStatus(401);
+    res.status(401).render("login", {userName: req.body.username, password: req.body.password})
   }
 });
 
