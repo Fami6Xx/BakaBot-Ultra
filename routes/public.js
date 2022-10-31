@@ -22,7 +22,7 @@ router.post("/login", function (req, res, next){
 
     res.redirect("/private/")
   }else{
-    res.status(401).render("login", {userName: req.body.username, password: req.body.password})
+    res.status(401).render("login", {userName: req.body.username, password: req.body.password, displayErrorMessage: true})
   }
 });
 
