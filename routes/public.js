@@ -2,17 +2,22 @@ const express = require('express');
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
   res.render("index", {loggedIn: req.session.loggedIn, username: req.session.username, });
 })
 
 /* GET login page */
-router.get("/login", function (req, res) {
+router.get("/login", (req, res) => {
   res.render("login");
 });
 
+/* GET register page */
+router.get("/register", (req, res) => {
+  res.render("register");
+})
+
 /* POST login form */
-router.post("/login", function (req, res){
+router.post("/login", (req, res) =>{
   if(req.body.username === "root" && req.body.password === "root"){
     req.session.loggedin = true;
     req.session.username = req.body.username;
