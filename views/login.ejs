@@ -26,12 +26,12 @@
     <form autocomplete="nope" action="/login" name="loginForm" id="loginForm" method="post">
         <h2>Sign in</h2>
         <div class="inputBox">
-            <input type="text" required="required" id="username" name="username" autocomplete="new-password" value="<%- locals.username %>">
+            <input type="text" required="required" id="username" name="username" autocomplete="new-password" value="<%= locals.username %>">
             <span>Username</span>
             <i></i>
         </div>
         <div class="inputBox">
-            <input type="password" required="required" id="password" name="password" autocomplete="new-password" value="<%- locals.password %>">
+            <input type="password" required="required" id="password" name="password" autocomplete="new-password" value="<%= locals.password %>">
             <span>Password</span>
             <i></i>
         </div>

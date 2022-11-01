@@ -14,22 +14,22 @@
     <form action="/register" method="post" name="registerForm">
         <h2>Register</h2>
         <div class="inputBox">
-            <input type="text" required="required" id="username" name="username" autocomplete="username" value="<%- locals.username %>">
+            <input type="text" required="required" id="username" name="username" autocomplete="username" value="<%= locals.username %>">
             <span>Username</span>
             <i></i>
         </div>
         <div class="inputBox">
-            <input type="text" required="required" id="email" name="email" autocomplete="email" value="<%- locals.email %>">
+            <input type="text" required="required" id="email" name="email" autocomplete="email" value="<%= locals.email %>">
             <span>Email</span>
             <i></i>
         </div>
         <div class="inputBox">
-            <input type="password" required="required" id="password" name="password" autocomplete="password" value="<%- locals.password %>">
+            <input type="password" required="required" id="password" name="password" autocomplete="password" value="<%= locals.password %>">
             <span>Password</span>
             <i></i>
         </div>
         <div class="inputBox">
-            <input type="password" required="required" id="passwordConfirmation" name="passwordConfirmation" autocomplete="passwordConfirmation" value="<%- locals.passwordConfirmation %>">
+            <input type="password" required="required" id="passwordConfirmation" name="passwordConfirmation" autocomplete="passwordConfirmation" value="<%= locals.passwordConfirmation %>">
             <span>Password Again</span>
             <i></i>
         </div>
