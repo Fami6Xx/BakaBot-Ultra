@@ -18,7 +18,7 @@ router.all("*", (req, res, next) => {
 
 /* GET private listings. */
 router.get("/", (req, res, next) => {
-
+  next();
 });
 
 router.get("/logout", (req, res, next) => {

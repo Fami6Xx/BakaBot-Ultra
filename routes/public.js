@@ -8,12 +8,39 @@ router.get('/', (req, res) => {
 
 /* GET login page */
 router.get("/login", (req, res) => {
-  res.render("login");
+  if(!req.session.loggedin || req.session.timeout <= Date.now())
+    res.render("login");
+  else
+    res.redirect("/private/")
 });
 
 /* GET register page */
 router.get("/register", (req, res) => {
-  res.render("register");
+  if(!req.session.loggedin || req.session.timeout <= Date.now())
+    res.render("register");
+  else
+    res.redirect("/private/");
+})
+
+/* POST register form */
+router.post("/register", (req, res) => {
+  //VALIDATION
+  if(req.body.username && req.body.password === req.body.passwordConfirmation && req.body.email){
+    //Register user to database
+    req.session.loggedin = true;
+    req.session.username = req.body.username;
+    req.session.timeout = Date.now() + 1800000; // Half Hour = 1 800 000 ms
+
+    res.redirect("/private/");
+  }else {
+    //Check failed
+    res.status(401).render("register", {
+      username: req.body.username,
+      password: req.body.password,
+      passwordConfirmation: req.body.passwordConfirmation,
+      email: req.body.email
+    });
+  }
 })
 
 /* POST login form */
