@@ -1,9 +1,10 @@
 const express = require('express');
+const auth = require("../server/authentication")
 const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.render("index", {loggedIn: req.session.loggedIn, username: req.session.username, });
+  res.render("index", {loggedIn: req.session.loggedIn, username: req.session.username});
 })
 
 /* GET login page */
@@ -29,6 +30,7 @@ router.post("/register", (req, res) => {
     //Register user to database
     req.session.loggedin = true;
     req.session.username = req.body.username;
+    req.session.email = req.body.email;
     req.session.timeout = Date.now() + 1800000; // Half Hour = 1 800 000 ms
 
     res.redirect("/private/");
