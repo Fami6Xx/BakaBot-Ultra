@@ -4,7 +4,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.render("index", {loggedIn: req.session.loggedIn, username: req.session.username});
+  res.render("index", {loggedIn: req.session.loggedin, username: req.session.username});
 })
 
 /* GET login page */
